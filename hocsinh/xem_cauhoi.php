@@ -34,10 +34,7 @@ if (empty($cauHoiList)) {
         <div class="empty-state">
             <i class="fas fa-inbox fa-3x"></i>
             <p>Bạn chưa gửi câu hỏi nào</p>
-            <a href="gui_cauhoi.php" class="primary-btn">
-                <i class="fas fa-plus"></i>
-                Gửi câu hỏi mới
-            </a>
+       
         </div>';
 } else {
     foreach ($cauHoiList as $cauHoi) {

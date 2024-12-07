@@ -97,18 +97,60 @@ ob_start();
     .table {
         margin: 0;
         width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table th,
+    .table td {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        vertical-align: middle;
+        text-align: left;
     }
 
     .table th {
         font-weight: 600;
-        padding: 1rem;
         background: #f5f5f5;
-        border-bottom: 1px solid #eee;
     }
 
-    .table td {
-        padding: 1rem;
-        border-bottom: 1px solid #eee;
+    /* Thêm các styles mới để căn chỉnh cột */
+    .table td:first-child,
+    /* Mã bài test */
+    .table th:first-child {
+        width: 10%;
+        text-align: center;
+    }
+
+    .table td:nth-child(2),
+    /* Tên h�c sinh */
+    .table th:nth-child(2) {
+        width: 20%;
+    }
+
+    .table td:nth-child(3),
+    /* Ngày làm bài */
+    .table th:nth-child(3) {
+        width: 15%;
+        text-align: center;
+    }
+
+    .table td:nth-child(4),
+    /* Ngành đ� xuất */
+    .table th:nth-child(4) {
+        width: 20%;
+    }
+
+    .table td:nth-child(5),
+    /* Chi tiết */
+    .table th:nth-child(5) {
+        width: 15%;
+        text-align: center;
+    }
+
+    .table td:nth-child(6),
+    /* Quyết định ngành */
+    .table th:nth-child(6) {
+        width: 20%;
     }
 
     .badge {
@@ -317,7 +359,7 @@ ob_start();
                             <th>Ngày làm bài</th>
                             <th>Ngành đề xuất</th>
                             <th>Chi tiết</th>
-                            <th>Quyết định ngành</th>
+                            <th>Quy��t định ngành</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -330,9 +372,15 @@ ob_start();
                                 </td>
                                 <td><?php echo date('d/m/Y', strtotime($baitest['NgayLamBai'])); ?></td>
                                 <td>
-                                    <span class="badge bg-info">
-                                        <?php echo htmlspecialchars($baitest['NganhDeXuat']); ?>
-                                    </span>
+                                    <?php if (!empty($baitest['TenNganhHienTai'])): ?>
+                                        <span class="badge bg-success">
+                                            <?php echo htmlspecialchars($baitest['TenNganhHienTai']); ?>
+                                        </span>
+                                    <?php else: ?>
+                                        <span class="badge bg-info">
+                                            <?php echo htmlspecialchars($baitest['NganhDeXuat']); ?>
+                                        </span>
+                                    <?php endif; ?>
                                 </td>
                                 <td>
                                     <button class="btn-detail" onclick="showDetails(<?php echo htmlspecialchars(json_encode($baitest)); ?>)">

@@ -6,15 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hệ thống giáo viên</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4A90E2;
-            --secondary-color: #357ABD;
-            --text-color: #2C3E50;
-            --bg-color: #F8F9FA;
-            --border-color: #E9ECEF;
-            --sidebar-width: 250px;
-            --header-height: 200px;
+            --primary-color: #2563eb;
+            --secondary-color: #1d4ed8;
+            --text-color: #1f2937;
+            --bg-color: #f3f4f6;
+            --border-color: #e5e7eb;
+            --sidebar-width: 280px;
+            --header-height: 150px;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
         }
 
         * {
@@ -24,17 +28,20 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             min-height: 100vh;
             display: flex;
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
         /* Header Styles */
         .header-banner {
             height: var(--header-height);
             width: 100%;
-            background-image: url('https://img.freepik.com/free-vector/abstract-education-background-with-books-minimal-style_1017-25184.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             position: fixed;
@@ -42,7 +49,7 @@
             right: 0;
             left: var(--sidebar-width);
             z-index: 10;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .header-overlay {
@@ -51,39 +58,45 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(44, 62, 80, 0.8), rgba(52, 152, 219, 0.8));
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(29, 78, 216, 0.9));
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
+            padding: 2rem;
         }
 
         .header-content {
             text-align: center;
+            max-width: 800px;
         }
 
         .header-content h1 {
             font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.5px;
         }
 
         .header-content p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 300;
+            line-height: 1.6;
         }
 
         /* Sidebar Styles */
         .sidebar {
             width: var(--sidebar-width);
-            background: linear-gradient(180deg, #2C3E50, #3498DB);
+            background: linear-gradient(180deg, #1e3a8a, #2563eb);
             min-height: 100vh;
             position: fixed;
             left: 0;
             top: 0;
             color: white;
-            padding: 1rem 0;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 0;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
             z-index: 20;
         }
 
@@ -91,33 +104,37 @@
             padding: 1.5rem;
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .sidebar-header h1 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .sidebar-header i {
             font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #FFC107;
+            margin-bottom: 0.75rem;
+            color: #fbbf24;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
         }
 
         .nav-menu {
-            padding: 1rem 0;
+            padding: 0.5rem 0;
         }
 
         .nav-section {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .nav-section-title {
-            padding: 0.5rem 1.5rem;
-            font-size: 0.9rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.6);
-            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1.5px;
+            font-weight: 500;
         }
 
         .nav-menu ul {
@@ -127,22 +144,25 @@
         .nav-menu a {
             color: white;
             text-decoration: none;
-            padding: 0.8rem 1.5rem;
+            padding: 0.75rem 1.5rem;
             display: flex;
             align-items: center;
             transition: all 0.3s ease;
-            border-left: 3px solid transparent;
+            border-left: 4px solid transparent;
+            font-weight: 400;
         }
 
         .nav-menu a:hover {
             background: rgba(255, 255, 255, 0.1);
-            border-left: 3px solid #FFC107;
+            border-left: 4px solid #fbbf24;
+            transform: translateX(4px);
         }
 
         .nav-menu a i {
-            margin-right: 0.8rem;
+            margin-right: 1rem;
             width: 20px;
             text-align: center;
+            font-size: 1.1rem;
         }
 
         /* Main Content */
@@ -152,13 +172,13 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            background: var(--bg-color);
+            min-height: calc(100vh - var(--header-height));
         }
 
         main {
             flex: 1;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 1.5rem;
             width: 100%;
         }
 
@@ -169,22 +189,35 @@
             padding: 1rem;
             border-top: 1px solid var(--border-color);
             margin-top: auto;
+            font-size: 0.9rem;
         }
 
         footer a {
             color: var(--primary-color);
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
 
         footer a:hover {
-            text-decoration: underline;
+            color: var(--secondary-color);
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            :root {
+                --sidebar-width: 240px;
+            }
+        }
+
         @media (max-width: 768px) {
+            :root {
+                --header-height: 120px;
+            }
+
             .sidebar {
                 transform: translateX(-100%);
-                transition: transform 0.3s ease;
+                transition: transform 0.3s ease-in-out;
                 z-index: 1000;
             }
 
@@ -200,8 +233,20 @@
                 left: 0;
             }
 
+            .header-content h1 {
+                font-size: 1.75rem;
+            }
+
+            .header-content p {
+                font-size: 1rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
             .mobile-toggle {
-                display: block;
+                display: flex;
                 position: fixed;
                 top: 1rem;
                 left: 1rem;
@@ -209,9 +254,32 @@
                 background: var(--primary-color);
                 color: white;
                 padding: 0.5rem;
-                border-radius: 4px;
+                border-radius: 8px;
                 cursor: pointer;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
             }
+
+            .mobile-toggle:hover {
+                background: var(--secondary-color);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        main {
+            animation: fadeIn 0.3s ease-out;
         }
     </style>
 </head>
@@ -229,7 +297,6 @@
                     <li><a href="/chattt/giaovien/index.php"><i class="fas fa-home"></i>Trang chủ</a></li>
                     <li><a href="/chattt/giaovien/danhsach_cauhoi_giaovien.php"><i class="fas fa-question-circle"></i>Danh sách câu hỏi</a></li>
                     <li><a href="/chattt/giaovien/danhsach_baitest.php"><i class="fas fa-comments"></i>Danh sách bài kiểm tra</a></li>
-
                 </ul>
             </div>
 
@@ -250,7 +317,7 @@
         <div class="header-overlay">
             <div class="header-content">
                 <h1>Hệ Thống Quản Lý Giáo Viên</h1>
-                <p>Nền tảng hỗ trợ giảng dạy và tương tác với học sinh</p>
+                <p>Nền tảng hiện đại hỗ trợ giảng dạy và tương tác với học sinh một cách hiệu quả</p>
             </div>
         </div>
     </div>
@@ -263,14 +330,25 @@
             <?php if (isset($content)) echo $content; ?>
         </main>
         <footer>
-            <p>&copy; 2024 Hệ thống quản lý giáo viên. Được thiết kế bởi <a href="#">Your Company</a></p>
+            <p>&copy; 2024 Hệ thống quản lý giáo viên. Được phát triển bởi <a href="#">Education Tech</a></p>
         </footer>
     </div>
 
     <script>
-        // Mobile menu toggle
         document.querySelector('.mobile-toggle').addEventListener('click', function() {
             document.querySelector('.sidebar').classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(event) {
+            const sidebar = document.querySelector('.sidebar');
+            const toggle = document.querySelector('.mobile-toggle');
+
+            if (window.innerWidth <= 768 &&
+                !sidebar.contains(event.target) &&
+                !toggle.contains(event.target) &&
+                sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
         });
     </script>
 </body>

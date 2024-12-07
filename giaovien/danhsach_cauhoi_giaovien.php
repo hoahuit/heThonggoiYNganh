@@ -233,6 +233,9 @@ $content .= '
 .question-table td {
     padding: 15px;
     border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .question-table thead th {
@@ -257,6 +260,7 @@ $content .= '
     text-overflow: ellipsis;
     white-space: nowrap;
     line-height: 1.4;
+    display: block;
 }
 
 .status-badge {
