@@ -1,0 +1,181 @@
+USE [llll]
+GO
+/****** Object:  Table [dbo].[BaiTest]    Script Date: 08/12/2024 16:02:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BaiTest](
+	[MaBaiTest] [int] IDENTITY(1,1) NOT NULL,
+	[MaHocSinh] [int] NOT NULL,
+	[NgayLamBai] [datetime] NULL,
+	[DinhHuongNgheNghiep] [nvarchar](255) NULL,
+	[SoThich] [nvarchar](max) NULL,
+	[DiemToan] [float] NULL,
+	[DiemVan] [float] NULL,
+	[DiemAnh] [float] NULL,
+	[DiemLy] [float] NULL,
+	[DiemHoa] [float] NULL,
+	[DiemSinh] [float] NULL,
+	[NganhDeXuat] [nvarchar](255) NULL,
+	[MaNganh] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MaBaiTest] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CauHoi]    Script Date: 08/12/2024 16:02:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CauHoi](
+	[MaCauHoi] [int] IDENTITY(1,1) NOT NULL,
+	[MaHocSinh] [int] NOT NULL,
+	[MaGiaoVien] [int] NULL,
+	[NoiDung] [nvarchar](max) NOT NULL,
+	[TraLoi] [nvarchar](max) NULL,
+	[TrangThai] [nvarchar](20) NULL,
+	[NgayGui] [datetime] NULL,
+	[NgayTraLoi] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MaCauHoi] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[GiaoVien]    Script Date: 08/12/2024 16:02:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[GiaoVien](
+	[MaGiaoVien] [int] IDENTITY(1,1) NOT NULL,
+	[TenDangNhap] [nvarchar](50) NOT NULL,
+	[MatKhau] [nvarchar](255) NOT NULL,
+	[HoTen] [nvarchar](100) NOT NULL,
+	[Email] [nvarchar](100) NULL,
+	[SoDienThoai] [nvarchar](15) NULL,
+	[NgayTao] [datetime] NULL,
+	[MaNganh] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MaGiaoVien] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HocSinh]    Script Date: 08/12/2024 16:02:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HocSinh](
+	[MaHocSinh] [int] IDENTITY(1,1) NOT NULL,
+	[TenDangNhap] [nvarchar](50) NOT NULL,
+	[MatKhau] [nvarchar](255) NOT NULL,
+	[HoTen] [nvarchar](100) NOT NULL,
+	[Email] [nvarchar](100) NULL,
+	[SoDienThoai] [nvarchar](15) NULL,
+	[DiaChi] [nvarchar](255) NULL,
+	[NgayTao] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MaHocSinh] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[NganhHoc]    Script Date: 08/12/2024 16:02:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NganhHoc](
+	[MaNganh] [int] IDENTITY(1,1) NOT NULL,
+	[TenNganh] [nvarchar](255) NOT NULL,
+	[MoTa] [nvarchar](max) NULL,
+	[DieuKienDeXuat] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MaNganh] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[BaiTest] ON 
+
+INSERT [dbo].[BaiTest] ([MaBaiTest], [MaHocSinh], [NgayLamBai], [DinhHuongNgheNghiep], [SoThich], [DiemToan], [DiemVan], [DiemAnh], [DiemLy], [DiemHoa], [DiemSinh], [NganhDeXuat], [MaNganh]) VALUES (7, 1, CAST(N'2024-12-07T21:55:56.980' AS DateTime), N'11', N'111', 9, 9, 9, 9, 9, 9, N'Công nghệ thông tin', 1)
+INSERT [dbo].[BaiTest] ([MaBaiTest], [MaHocSinh], [NgayLamBai], [DinhHuongNgheNghiep], [SoThich], [DiemToan], [DiemVan], [DiemAnh], [DiemLy], [DiemHoa], [DiemSinh], [NganhDeXuat], [MaNganh]) VALUES (8, 1, CAST(N'2024-12-08T09:33:16.190' AS DateTime), N'Muốn làm it', N'Toán', 9, 9, 9, 9, 9, 9, N'Công nghệ thông tin', 1)
+SET IDENTITY_INSERT [dbo].[BaiTest] OFF
+GO
+SET IDENTITY_INSERT [dbo].[CauHoi] ON 
+
+INSERT [dbo].[CauHoi] ([MaCauHoi], [MaHocSinh], [MaGiaoVien], [NoiDung], [TraLoi], [TrangThai], [NgayGui], [NgayTraLoi]) VALUES (9, 1, 1, N'1231231231231', N'23', N'Đã trả lời', CAST(N'2024-12-07T22:41:48.003' AS DateTime), CAST(N'2024-12-07T22:41:59.760' AS DateTime))
+INSERT [dbo].[CauHoi] ([MaCauHoi], [MaHocSinh], [MaGiaoVien], [NoiDung], [TraLoi], [TrangThai], [NgayGui], [NgayTraLoi]) VALUES (10, 1, 1, N'Hỏi về IT', N'em muốn hỏi về gì', N'Đã trả lời', CAST(N'2024-12-08T09:33:37.833' AS DateTime), CAST(N'2024-12-08T09:34:35.947' AS DateTime))
+INSERT [dbo].[CauHoi] ([MaCauHoi], [MaHocSinh], [MaGiaoVien], [NoiDung], [TraLoi], [TrangThai], [NgayGui], [NgayTraLoi]) VALUES (11, 1, NULL, N'Em hỏi về gì đó
+', NULL, N'Chưa trả lời', CAST(N'2024-12-08T09:35:02.567' AS DateTime), NULL)
+SET IDENTITY_INSERT [dbo].[CauHoi] OFF
+GO
+SET IDENTITY_INSERT [dbo].[GiaoVien] ON 
+
+INSERT [dbo].[GiaoVien] ([MaGiaoVien], [TenDangNhap], [MatKhau], [HoTen], [Email], [SoDienThoai], [NgayTao], [MaNganh]) VALUES (1, N'gv1', N'1', N'Nguyen Thi Lan', N'nguyenlan@gmail.com', N'0987654321', CAST(N'2024-12-07T21:23:31.150' AS DateTime), 1)
+SET IDENTITY_INSERT [dbo].[GiaoVien] OFF
+GO
+SET IDENTITY_INSERT [dbo].[HocSinh] ON 
+
+INSERT [dbo].[HocSinh] ([MaHocSinh], [TenDangNhap], [MatKhau], [HoTen], [Email], [SoDienThoai], [DiaChi], [NgayTao]) VALUES (1, N'hs1', N'1', N'Nguyen Van A', N'hs@gmail.com', N'0123456789', N'123 Duong ABC', CAST(N'2024-12-07T18:45:03.363' AS DateTime))
+SET IDENTITY_INSERT [dbo].[HocSinh] OFF
+GO
+SET IDENTITY_INSERT [dbo].[NganhHoc] ON 
+
+INSERT [dbo].[NganhHoc] ([MaNganh], [TenNganh], [MoTa], [DieuKienDeXuat]) VALUES (1, N'Công nghệ thông tin', N'Ngành học về phát triển phần mềm, hệ thống máy tính, AI và dữ liệu lớn', N'DiemToan >= 8.0 AND DiemAnh >= 7.0')
+INSERT [dbo].[NganhHoc] ([MaNganh], [TenNganh], [MoTa], [DieuKienDeXuat]) VALUES (2, N'Y học', N'Ngành đào tạo bác sĩ, nghiên cứu y học và chăm sóc sức khỏe', N'DiemSinh >= 8.5 AND DiemHoa >= 7.5')
+INSERT [dbo].[NganhHoc] ([MaNganh], [TenNganh], [MoTa], [DieuKienDeXuat]) VALUES (3, N'Kinh tế', N'Ngành học về kinh doanh, tài chính và kinh tế học', N'DiemVan >= 7.0 AND DiemAnh >= 7.5')
+INSERT [dbo].[NganhHoc] ([MaNganh], [TenNganh], [MoTa], [DieuKienDeXuat]) VALUES (4, N'Luật', N'Ngành đào tạo chuyên môn pháp luật và kỹ năng tư pháp', N'DiemVan >= 8.0')
+INSERT [dbo].[NganhHoc] ([MaNganh], [TenNganh], [MoTa], [DieuKienDeXuat]) VALUES (5, N'Kiến trúc', N'Ngành học về thiết kế, xây dựng công trình kiến trúc', N'DiemToan >= 7.5 AND DiemLy >= 7.0')
+INSERT [dbo].[NganhHoc] ([MaNganh], [TenNganh], [MoTa], [DieuKienDeXuat]) VALUES (6, N'Sư phạm', N'Ngành đào tạo giáo viên ở nhiều lĩnh vực khác nhau', N'DiemVan >= 7.5 AND DiemAnh >= 6.5')
+INSERT [dbo].[NganhHoc] ([MaNganh], [TenNganh], [MoTa], [DieuKienDeXuat]) VALUES (7, N'Kỹ thuật điện', N'Ngành học về thiết kế, sản xuất và vận hành hệ thống điện', N'DiemToan >= 8.0 AND DiemLy >= 7.5')
+INSERT [dbo].[NganhHoc] ([MaNganh], [TenNganh], [MoTa], [DieuKienDeXuat]) VALUES (8, N'Nông nghiệp', N'Ngành đào tạo về công nghệ sinh học, trồng trọt và chăn nuôi', N'DiemSinh >= 7.0 AND DiemHoa >= 6.5')
+SET IDENTITY_INSERT [dbo].[NganhHoc] OFF
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [UQ__GiaoVien__55F68FC01F22988D]    Script Date: 08/12/2024 16:02:46 ******/
+ALTER TABLE [dbo].[GiaoVien] ADD UNIQUE NONCLUSTERED 
+(
+	[TenDangNhap] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [UQ__HocSinh__55F68FC082614016]    Script Date: 08/12/2024 16:02:46 ******/
+ALTER TABLE [dbo].[HocSinh] ADD UNIQUE NONCLUSTERED 
+(
+	[TenDangNhap] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[BaiTest] ADD  DEFAULT (getdate()) FOR [NgayLamBai]
+GO
+ALTER TABLE [dbo].[CauHoi] ADD  DEFAULT (N'Chưa trả lời') FOR [TrangThai]
+GO
+ALTER TABLE [dbo].[CauHoi] ADD  DEFAULT (getdate()) FOR [NgayGui]
+GO
+ALTER TABLE [dbo].[GiaoVien] ADD  DEFAULT (getdate()) FOR [NgayTao]
+GO
+ALTER TABLE [dbo].[HocSinh] ADD  DEFAULT (getdate()) FOR [NgayTao]
+GO
+ALTER TABLE [dbo].[BaiTest]  WITH CHECK ADD FOREIGN KEY([MaHocSinh])
+REFERENCES [dbo].[HocSinh] ([MaHocSinh])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[BaiTest]  WITH CHECK ADD FOREIGN KEY([MaNganh])
+REFERENCES [dbo].[NganhHoc] ([MaNganh])
+ON DELETE SET NULL
+GO
+ALTER TABLE [dbo].[CauHoi]  WITH CHECK ADD FOREIGN KEY([MaGiaoVien])
+REFERENCES [dbo].[GiaoVien] ([MaGiaoVien])
+ON DELETE SET NULL
+GO
+ALTER TABLE [dbo].[CauHoi]  WITH CHECK ADD FOREIGN KEY([MaHocSinh])
+REFERENCES [dbo].[HocSinh] ([MaHocSinh])
+ON DELETE CASCADE
+GO
